@@ -1,0 +1,13 @@
+{
+  "name": "request_logger",
+  "version": "1.0.0",
+  "description": "Log http requests",
+  "main": "index.js",
+  "author": "Kev Aldasoro",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "multer": "^1.4.3",
+    "yargs": "^17.1.0"
+  }
+}
