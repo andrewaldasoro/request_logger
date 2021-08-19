@@ -1,9 +1,4 @@
 const yargs = require('yargs')
-
-const express = require('express')
-const app = express()
-const upload = multer()
-
 const argv = yargs
   .option('port', {
     alias: 'p',
@@ -13,15 +8,17 @@ const argv = yargs
   })
   .argv
 
-app.all('/', (req, res) => {
-  console.log(req);
-  res.status(200).send('')
-})
+const express = require('express')
+const morgan = require('morgan')
 
-app.up('/upload', upload.any(), (req, res) => {
-  res.status(200).send('')
+const app = express()
+
+app.use(morgan('combined'))
+
+app.all(/.*/, (req, res) => {
+  res.status(200).send('OK')
 })
 
 app.listen(argv.port, "0.0.0.0", () => {
-  console.log(`Logger listening at http://localhost:${argv.port}`)
+  console.log(`Logger listening at 0.0.0.0:${argv.port}`)
 })
