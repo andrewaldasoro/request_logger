@@ -15,8 +15,8 @@ const app = express()
 
 app.use(morgan('combined'))
 
-app.all(/.*/, (req, res) => {
-  res.status(200).send('OK')
+app.use((_, res) => {
+  res.send('OK')
 })
 
 app.listen(argv.port, "0.0.0.0", () => {
